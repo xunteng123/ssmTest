@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xunteng.dao.UserDao">
+    <select id="selectUser" resultType="User" parameterType="hashmap">
+        SELECT * FROM user
+        <if test="id != null and id != '' ">
+            <where>
+                AND id = #{id}
+            </where>
+        </if>
+    </select>
+<!--添加用户 -->
+<insert id="addUser">
+
+    insert into user values (#{id},#{name},#{age})
+</insert>
+
+ <!--  根据ID删除用户-->
+<delete id="delUser">
+
+    delete  from user where id=#{id}
+</delete>
+<!--xiugai-->
+    <update id="updateStuAge">
+
+        update user set age=#{age} where name=#{name}
+    </update>
+
+
+    <!--根据ID进行修改用户-->
+    <update id="update">
+        update user set age=#{age},name=#{name} where id=#{id}
+
+    </update>
+
+    <!--denglu   查询   如果对象，对应是属性-->
+    <select id="login" >
+
+        select * from user where name= #{Uname}and passwd=#{Upasswd}
+    </select>  <!--登录   查询-->
+    <select id="login2" >
+
+        select * from user where name= #{name}and passwd=#{passwd}
+    </select>
+</mapper>
