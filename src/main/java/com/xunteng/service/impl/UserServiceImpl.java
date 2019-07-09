@@ -43,6 +43,8 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
+
+
     @Override
     public int removeUser(Integer id) {
 
@@ -60,5 +62,20 @@ public class UserServiceImpl implements UserService {
         return userDao.update(id, name,age);
     }
 
+    /**
+     * 查询用户名是否存在
+     *
+     * @param name
+     * @return
+     */
+    @Override
+    public boolean exist(String name){
+        boolean result = false;
+        User user=userDao.exist(name);
+        if (user != null) {
+            result = true;
+        }
+        return result;
 
+    }
 }

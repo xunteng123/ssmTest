@@ -1,6 +1,7 @@
 package com.xunteng.controller;
 
 
+import com.mysql.jdbc.StringUtils;
 import com.xunteng.pojo.User;
 import com.xunteng.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +59,8 @@ public class UserController {
      boolean a=userService.register(user);
         System.out.println(a);
 
-       return "login";
-       // return ("redirect:/user/selectUserAsJsp");
+      // return "login";
+        return ("redirect:/user/selectUserAsJsp");
     }
     @RequestMapping("/test")
     public String test() {
@@ -119,4 +120,23 @@ public String loginout(HttpSession session){
 
      return "login";
 }
+//用户名是否被占用
+    @RequestMapping("/isExist")
+    @ResponseBody
+    public Object isExist(@RequestParam String name){
+
+        HashMap<String, String> resultMap = new HashMap<String, String>();
+        if(StringUtils.isNullOrEmpty(name)){
+            resultMap.put("Uname", "exist");
+        }else{
+            boolean result=userService.exist(name);
+            if(result)
+                resultMap.put("userCode", "exist");
+            else
+                resultMap.put("userCode", "noexist");
+        }
+       // return JSONArray.toJSONString(resultMap);
+         return aaa
+
+    }
 }

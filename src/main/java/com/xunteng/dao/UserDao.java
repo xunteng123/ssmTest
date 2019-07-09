@@ -26,9 +26,12 @@ public interface UserDao {
     //添加     登录方法   chaxun
     public User login(@Param("Uname") String Uname, @Param("Upasswd") String Upasswd);
 
-
     //如果参数是对象
+
     public User login2(User user);
+
+    //查询用户名是否已经存在存在   --新添加
+    public User exist(String Uname);
 
 
 }

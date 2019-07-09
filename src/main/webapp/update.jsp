@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>修改用户</title>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
      function check() {
         if (confirm("确定修改吗？")){

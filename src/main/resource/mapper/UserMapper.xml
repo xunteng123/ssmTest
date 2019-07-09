@@ -13,7 +13,7 @@
 <!--添加用户 -->
 <insert id="addUser">
 
-    insert into user values (#{id},#{name},#{age})
+    insert into user(id,name,age) values (#{id},#{name},#{age})
 </insert>
 
  <!--  根据ID删除用户-->
@@ -38,9 +38,14 @@
     <select id="login" >
 
         select * from user where name= #{Uname}and passwd=#{Upasswd}
-    </select>  <!--登录   查询-->
+    </select>
+    <!--登录   查询-->
     <select id="login2" >
 
         select * from user where name= #{name}and passwd=#{passwd}
+    </select>
+    <!--查询用户名是否存在-->
+    <select id="exist" >
+        select * from user where name= #{name}
     </select>
 </mapper>
