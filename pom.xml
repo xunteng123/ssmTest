@@ -27,7 +27,7 @@
         <!-- jstl版本号 -->
         <jstl.version>1.2</jstl.version>
         <!--json转换-->
-        <jackson.version>2.5.4</jackson.version>
+        <jackson.version>2.11.0</jackson.version>
     </properties>
 
     <dependencies>
